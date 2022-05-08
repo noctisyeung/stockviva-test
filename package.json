@@ -8,7 +8,9 @@
   "private": true,
   "scripts": {
     "start": "webpack",
-    "build": "webpack --mode production",
+    "start:static": "node dist/main.bundle.js",
+    "build": "NODE_ENV=production webpack --mode production",
+    "docker:run": "docker build -t stockviva-be:latest -f docker/Dockerfile . --no-cache && docker run -p 8899:8899 stockviva-be:latest",
     "prepare": "husky install",
     "lint": "eslint \"src/**/*.{ts,js}\"",
     "lint:fix": "eslint --fix \"src/**/*.{ts,js}\" && prettier --write \"src/**/*.{ts}\"",
