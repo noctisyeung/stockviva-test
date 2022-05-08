@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 const productionConfig = {
   coinMarketCapApiKey: process.env.COIN_MARKET_CAP_API_KEY,
   coinMarketCapApiUrl: 'https://pro-api.coinmarketcap.com/',
