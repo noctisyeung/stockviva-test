@@ -1,0 +1,13 @@
+# Static file
+dist
+
+# node_modules
+node_modules
+
+# yarn
+yarn-error.log
+
+# ENV files
+.env
+.env*.production
+.env*.development
