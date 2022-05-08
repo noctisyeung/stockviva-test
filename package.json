@@ -12,10 +12,13 @@
     "prepare": "husky install",
     "lint": "eslint \"src/**/*.{ts,js}\"",
     "lint:fix": "eslint --fix \"src/**/*.{ts,js}\" && prettier --write \"src/**/*.{ts}\"",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "tsc": "tsc"
   },
   "dependencies": {
     "axios": "0.27.2",
+    "cors": "2.8.5",
     "express": "4.18.1",
     "rate-limiter-flexible": "2.3.7",
     "winston": "3.7.2"
@@ -33,12 +36,14 @@
   "devDependencies": {
     "@babel/core": "7.17.10",
     "@babel/preset-env": "7.17.10",
-    "@babel/preset-typescript": "7.16.7",
+    "@types/cors": "2.8.12",
     "@types/express": "4.17.13",
+    "@types/jest": "27.5.0",
     "@types/node": "17.0.31",
     "@types/webpack-node-externals": "2.5.3",
     "@typescript-eslint/eslint-plugin": "5.22.0",
     "@typescript-eslint/parser": "5.22.0",
+    "axios-mock-adapter": "1.20.0",
     "babel-loader": "8.2.5",
     "dotenv-webpack": "7.1.0",
     "eslint": "8.2.0",
@@ -46,18 +51,42 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-import-resolver-typescript": "2.7.1",
     "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-jest": "26.1.5",
     "eslint-plugin-jsdoc": "39.2.9",
     "eslint-plugin-prettier": "4.0.0",
     "husky": "7.0.4",
+    "jest": "28.1.0",
     "lint-staged": "12.4.1",
     "nodemon-webpack-plugin": "4.7.1",
     "prettier": "2.6.2",
+    "ts-jest": "28.0.2",
     "ts-loader": "9.3.0",
     "ts-node": "10.7.0",
     "typescript": "4.6.4",
     "webpack": "5.72.0",
     "webpack-cli": "4.9.2",
     "webpack-node-externals": "3.0.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@controllers/(.*)": "<rootDir>/src/controllers/$1",
+      "^@routes/(.*)": "<rootDir>/src/routes/$1",
+      "^@utils/(.*)": "<rootDir>/src/utils/$1",
+      "^@helpers/(.*)": "<rootDir>/src/helpers/$1",
+      "^@custom-types/(.*)": "<rootDir>/src/types/$1",
+      "^@tests/(.*)": "<rootDir>/src/__tests__/$1"
+    },
+    "transform": {
+      ".(ts)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testPathIgnorePatterns": [
+      "__mocks__"
+    ]
   },
   "engines": {
     "node": ">=15"

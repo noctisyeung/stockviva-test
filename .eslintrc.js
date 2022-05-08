@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    'jest/globals': true,
   },
   extends: [
     'airbnb-base',
@@ -14,7 +15,7 @@ module.exports = {
     sourceType: 'module',
     tsconfigRootDir: './',
   },
-  plugins: ['@typescript-eslint', 'import', 'jsdoc'],
+  plugins: ['@typescript-eslint', 'import', 'jest', 'jsdoc'],
   rules: {
     'import/no-extraneous-dependencies': 0,
     'import/no-unresolved': ['error'],
@@ -29,6 +30,11 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/no-identical-title': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'jest/valid-expect': 'error',
   },
   settings: {
     'import/parsers': {
