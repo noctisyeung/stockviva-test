@@ -34,11 +34,12 @@ class CryptoController {
   async getCrypto(currency?: string): Promise<TGetCryptoPayload> {
     try {
       const maxResult = await this.getCryptoByPercentage({ max: -5, currency });
+      if (typeof maxResult === 'string') {
+        return getResultMessage(false, null, maxResult);
+      }
       const minResult = await this.getCryptoByPercentage({ min: 5, currency });
-
-      if (typeof maxResult === 'string' || typeof minResult === 'string') {
-        const msg = typeof maxResult === 'string' ? maxResult : minResult;
-        return getResultMessage(false, null, msg as string);
+      if (typeof minResult === 'string') {
+        return getResultMessage(false, null, minResult);
       }
       const result = [...maxResult, ...minResult].map((x) => ({
         id: x.id,
