@@ -1,0 +1,4 @@
+build:
+  docker:
+    express: docker/Dockerfile
+  run: node dist/main.bundle.js
