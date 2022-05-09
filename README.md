@@ -2,8 +2,8 @@
 ## Endpoints
 For now we have 1 endpoint for API testing <br/><br/>
 API URL=[https://stockviva-be.herokuapp.com/](https://stockviva-be.herokuapp.com/ "Production Link") <br/>
-- (without currency) [/api/crypto]
-- (with currency) [/api/crypto?currency=JPY]
+- (without currency) [/api/crypto](https://stockviva-be.herokuapp.com/api/crypto)
+- (with currency) [/api/crypto?currency=JPY](https://stockviva-be.herokuapp.com/api/crypto?currency=JPY)
 
 ## How to run
 
