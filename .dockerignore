@@ -11,6 +11,7 @@ docker
 .cz-config.js
 .eslint*
 .git*
+.env
 .prettier*
 CODEOWNERS
 README.md
